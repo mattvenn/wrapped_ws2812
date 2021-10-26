@@ -5,10 +5,10 @@ mode prove
 smtbmc
 
 [script]
-read -formal wrapper.v rest of your source files.v
-prep -top wrapped_project
+read -formal wrapper.v ws2812.v
+prep -top wrapped_ws2812
 
 [files]
 wrapper.v
 properties.v
-rest of your source files.v
+ws2812_core/ws2812.v

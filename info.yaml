@@ -1,11 +1,10 @@
 --- 
 # information
 project: 
-  title: "title"
-  description: "description"
-  picture: docs/empty.png
-  author: "Author"
-  github: https://github.com/link
+  title: "WS2812"
+  description: "WS2812 LED driver"
+  picture: ws2812_core/ws2812.jpg
+  author: "Matt Venn"
   license: LICENSE
 
 # optional interfaces you want to use: gpio, la1, la2, la3, irq, clk2 & wishbone
@@ -15,14 +14,14 @@ interfaces: ['la1', 'gpio']
 caravel_test:
   recipe: "coco_test"
   directory: "caravel_test"
-  id: 1
-  module_name: "wrapped_project"
-  instance_name: "wrapped_project"
+  id: 4
+  module_name: "wrapped_ws2812"
+  instance_name: "wrapped_ws2812"
 
 # module test
 module_test:
-  recipe: "all" 
-  directory: "project directory"
+  recipe: "debug"  # todo - doesn't do anything yet
+  directory: "ws2812_core"
   makefile: "Makefile"
 
 # run the wrapper formal proof
@@ -37,11 +36,11 @@ openlane:
 # source required for various configs and module instantiation
 source:
     - wrapper.v
-    - other source files here
+    - ws2812_core/ws2812.v
 
 # gds - check nothing on metal 5, DRC & LVS
 gds:
   directory: "gds"
-  gds_filename: "project.gds"
-  lvs_filename: "project.lvs.powered.v"
-  lef_filename: "project.lef"
+  gds_filename: "wrapped_ws2812.gds"
+  lvs_filename: "wrapped_ws2812.lvs.powered.v"
+  lef_filename: "wrapped_ws2812.lef"

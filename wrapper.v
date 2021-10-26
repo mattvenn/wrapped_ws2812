@@ -10,7 +10,7 @@
 //`define USE_IRQ 0
 
 // update this to the name of your module
-module wrapped_project(
+module wrapped_ws2812(
 `ifdef USE_POWER_PINS
     inout vccd1,	// User area 1 1.8V supply
     inout vssd1,	// User area 1 digital ground
@@ -31,9 +31,9 @@ module wrapped_project(
     // Logic Analyzer Signals
     // only provide first 32 bits to reduce wiring congestion
 `ifdef USE_LA
-    input  wire [31:0] la_data_in,  // from PicoRV32 to your project
-    output wire [31:0] la_data_out, // from your project to PicoRV32
-    input  wire [31:0] la_oenb,     // output enable bar (low for active)
+    input  wire [31:0] la1_data_in,  // from PicoRV32 to your project
+    output wire [31:0] la1_data_out, // from your project to PicoRV32
+    input  wire [31:0] la1_oenb,     // output enable bar (low for active)
 `endif
 
     // IOs
@@ -107,6 +107,17 @@ module wrapped_project(
     // Instantiate your module here, 
     // connecting what you need of the above signals. 
     // Use the buffered outputs for your module's outputs.
+    // was instantiated like this in MPW1: ws2812                proj_1 (.clk(proj1_clk), .reset(proj1_reset), .led_num(wbs_dat_i[31:24]), .rgb_data(wbs_dat_i[23:0]), .write(proj1_wb_update), .data(proj1_io_out[8]));
+
+
+    ws2812 ws2812(
+        .clk(wb_clk_i),
+        .reset(la1_data_in[0]),
+        .led_num({5'b0, la1_data_in[3:1]}), // 8 bit led number, but only 8 leds are turned on, so just provide 3 bits
+        .rgb_data(la1_data_in[27:4]),       // 24 bit colour data
+        .write(la1_data_in[28]),            // 1 bit write strobe
+        .data(buf_io_out[8])                 // 1 bit data output
+    );
 
 endmodule 
 `default_nettype wire
