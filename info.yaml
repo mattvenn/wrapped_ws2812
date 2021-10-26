@@ -13,7 +13,7 @@ interfaces: ['la1', 'gpio']
 # test within caravel
 caravel_test:
   recipe: "coco_test"
-  directory: "caravel_test"
+  directory: "caravel_ws2812"
   id: 4
   module_name: "wrapped_ws2812"
   instance_name: "wrapped_ws2812"

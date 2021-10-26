@@ -79,7 +79,7 @@ module ws2812_tb;
 	);
 
 	spiflash #(
-		.FILENAME("project.hex")
+		.FILENAME("ws2812.hex")
 	) spiflash (
 		.csb(flash_csb),
 		.clk(flash_clk),

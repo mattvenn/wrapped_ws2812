@@ -1,6 +1,6 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Oct 26 15:51:56 2021
+[*] Tue Oct 26 16:05:26 2021
 [*]
 [dumpfile] "/home/matt/work/asic-workshop/shuttle3-mpw-3/caravel_user_project/verilog/dv/caravel_test/ws2812.vcd"
 [dumpfile_mtime] "Tue Oct 26 15:46:39 2021"
@@ -9,7 +9,7 @@
 [timestart] 0
 [size] 1000 600
 [pos] 800 227
-*-27.000000 400000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-21.000000 775000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] ws2812_tb.
 [treeopen] ws2812_tb.uut.
 [treeopen] ws2812_tb.uut.mprj.
@@ -17,7 +17,7 @@
 [sst_width] 233
 [signals_width] 277
 [sst_expanded] 1
-[sst_vpaned_height] 305
+[sst_vpaned_height] 212
 @28
 ws2812_tb.clk
 ws2812_tb.uut.mprj.wrapped_ws2812_4.ws2812.clk
@@ -31,5 +31,13 @@ ws2812_tb.uut.mprj.wrapped_ws2812_4.ws2812.led_num[7:0]
 ws2812_tb.uut.mprj.wrapped_ws2812_4.active
 @22
 ws2812_tb.uut.mprj.wrapped_ws2812_4.la1_data_in[31:0]
+ws2812_tb.uut.mprj.la_data_in[127:0]
+ws2812_tb.uut.mprj.active[31:0]
+@28
+ws2812_tb.power1
+ws2812_tb.power2
+ws2812_tb.power3
+@29
+ws2812_tb.power4
 [pattern_trace] 1
 [pattern_trace] 0
