@@ -67,6 +67,7 @@ void main()
     reg_la1_data = 0;
 
     //              write      led 1      rgb data is 0x403020
-    reg_la1_data = (1 << 28) + (1 << 1) + (0xffffff << 4);
+    reg_la1_data = (1 << 28) + (1 << 1) + (0x403020 << 4);
+    reg_la1_data = 0;
 }
 
