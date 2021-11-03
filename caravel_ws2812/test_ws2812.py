@@ -7,23 +7,23 @@ async def test_start(dut):
     clock = Clock(dut.clk, 25, units="ns") # 40M
     cocotb.fork(clock.start())
     
-    dut.RSTB <= 0
-    dut.power1 <= 0;
-    dut.power2 <= 0;
-    dut.power3 <= 0;
-    dut.power4 <= 0;
+    dut.RSTB = 0
+    dut.power1 = 0;
+    dut.power2 = 0;
+    dut.power3 = 0;
+    dut.power4 = 0;
 
     await ClockCycles(dut.clk, 8)
-    dut.power1 <= 1;
+    dut.power1 = 1;
     await ClockCycles(dut.clk, 8)
-    dut.power2 <= 1;
+    dut.power2 = 1;
     await ClockCycles(dut.clk, 8)
-    dut.power3 <= 1;
+    dut.power3 = 1;
     await ClockCycles(dut.clk, 8)
-    dut.power4 <= 1;
+    dut.power4 = 1;
 
     await ClockCycles(dut.clk, 80)
-    dut.RSTB <= 1
+    dut.RSTB = 1
 
     # wait with a timeout for the project to become active
     await with_timeout(RisingEdge(dut.uut.mprj.wrapped_ws2812_4.active), 180, 'us')
