@@ -20,7 +20,7 @@ caravel_test:
 
 # module test
 module_test:
-  recipe: "debug"  # todo - doesn't do anything yet
+  recipe: "test"
   directory: "ws2812_core"
   makefile: "Makefile"
 
